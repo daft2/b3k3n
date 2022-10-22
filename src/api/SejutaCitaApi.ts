@@ -38,6 +38,16 @@ const SejutaCitaApi = {
 
     return await axios.get("/fee-assessment-books", { params: body });
   },
+  getTotalBooks: async ({ categoryId }: ParamsType) => {
+    const totalBooks = await axios
+      .get("/fee-assessment-books", { params: { categoryId } })
+      .then((response) => response.data.length || 0)
+      .catch(() => 0);
+
+    return {
+      count: totalBooks,
+    };
+  },
 };
 
 export default SejutaCitaApi;
