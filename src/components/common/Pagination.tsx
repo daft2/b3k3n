@@ -22,7 +22,7 @@ const Pagination = (props: Props) => {
             <span className="sr-only">Previous</span>
             <ChevronLeft size={16} />
           </button>
-          {props.currentPage === props.pages && (
+          {props.currentPage === props.pages && props.pages > 1 && (
             <button
               onClick={() => props.onClickPage(props.currentPage - 3)}
               key={`page-key-${props.currentPage - 2}`}
@@ -55,7 +55,7 @@ const Pagination = (props: Props) => {
               </button>
             )
           )}
-          {props.currentPage === 1 && (
+          {props.currentPage === 1 && props.pages > 1 && (
             <>
               <button
                 onClick={() => props.onClickPage(props.currentPage)}
