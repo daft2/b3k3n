@@ -41,7 +41,7 @@ function App() {
 
   let filteredBooks: BookResponse[] = [];
   // Search through books state for each keys
-  if (books.length > 0) {
+  if (!loading.books) {
     filteredBooks = books.filter((book: any) => {
       return Object.keys(book).some((key: any) =>
         book[key].toString().toLowerCase().includes(lowercasedSearchValue)
