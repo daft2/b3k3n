@@ -27,7 +27,9 @@ type ParamsType = {
 
 const SejutaCitaApi = {
   getCategories: async () => {
-    return await axios.get("/fee-assessment-categories");
+    return await axios.get(
+      process.env.REACT_APP_API_BASE_URL + "/fee-assessment-categories"
+    );
   },
   getBooks: async ({ categoryId = 1, page = 0, size }: ParamsType) => {
     const body = {
@@ -36,11 +38,18 @@ const SejutaCitaApi = {
       size,
     };
 
-    return await axios.get("/fee-assessment-books", { params: body });
+    return await axios.get(
+      process.env.REACT_APP_API_BASE_URL + "/fee-assessment-books",
+      {
+        params: body,
+      }
+    );
   },
   getTotalBooks: async ({ categoryId }: ParamsType) => {
     const totalBooks = await axios
-      .get("/fee-assessment-books", { params: { categoryId } })
+      .get(process.env.REACT_APP_API_BASE_URL + "/fee-assessment-books", {
+        params: { categoryId },
+      })
       .then((response) => response.data.length || 0)
       .catch(() => 0);
 
