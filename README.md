@@ -1,3 +1,13 @@
+## Live Site
+
+https://booku-b3k3n.netlify.app/
+
+## API Improvement Feedback
+
+1. Pagination is better to do it on the backend so we dont consume to much resource to translate the data in the frontend because it will slow the rendering process
+2. Need more additional data in each response like status, error, or metadata like total count
+3. Instead of 404 Error is shown when API need some params its better to send error message response with clearer intention
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
