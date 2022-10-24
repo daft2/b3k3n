@@ -194,7 +194,7 @@ function App() {
               categories={categories}
             />
           </div>
-          {filteredBooks.length === 0 && (
+          {!loading.books && filteredBooks.length === 0 && (
             <div className="h-80 flex justify-center items-center">
               <h1>
                 We can't find the book you're looking for, check that you typed
