@@ -39,12 +39,15 @@ function App() {
   const [searchValue, setSearchValue] = React.useState("");
   const lowercasedSearchValue = searchValue.toLowerCase();
 
+  let filteredBooks: BookResponse[] = [];
   // Search through books state for each keys
-  const filteredBooks: BookResponse[] = books.filter((book: any) => {
-    return Object.keys(book).some((key: any) =>
-      book[key].toString().toLowerCase().includes(lowercasedSearchValue)
-    );
-  });
+  if (books.length > 0) {
+    filteredBooks = books.filter((book: any) => {
+      return Object.keys(book).some((key: any) =>
+        book[key].toString().toLowerCase().includes(lowercasedSearchValue)
+      );
+    });
+  }
 
   const higlightBook = books.slice(0, 1);
 
