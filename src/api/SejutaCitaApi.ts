@@ -27,11 +27,14 @@ type ParamsType = {
 
 const SejutaCitaApi = {
   getCategories: async () => {
+    console.log(process.env.REACT_APP_VERCEL_URL);
     return await axios.get(
       process.env.REACT_APP_VERCEL_URL + "/fee-assessment-categories"
     );
   },
   getBooks: async ({ categoryId = 1, page = 0, size }: ParamsType) => {
+    console.log(process.env.REACT_APP_VERCEL_URL);
+
     const body = {
       categoryId,
       page,
