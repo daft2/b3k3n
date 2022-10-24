@@ -27,13 +27,13 @@ type ParamsType = {
 
 const SejutaCitaApi = {
   getCategories: async () => {
-    console.log(process.env.REACT_APP_VERCEL_URL);
+    console.log(process.env.REACT_APP_API_BASE_URL);
     return await axios.get(
-      process.env.REACT_APP_VERCEL_URL + "/fee-assessment-categories"
+      process.env.REACT_APP_API_BASE_URL + "/fee-assessment-categories"
     );
   },
   getBooks: async ({ categoryId = 1, page = 0, size }: ParamsType) => {
-    console.log(process.env.REACT_APP_VERCEL_URL);
+    console.log(process.env.REACT_APP_API_BASE_URL);
 
     const body = {
       categoryId,
@@ -42,7 +42,7 @@ const SejutaCitaApi = {
     };
 
     return await axios.get(
-      process.env.REACT_APP_VERCEL_URL + "/fee-assessment-books",
+      process.env.REACT_APP_API_BASE_URL + "/fee-assessment-books",
       {
         params: body,
       }
@@ -50,7 +50,7 @@ const SejutaCitaApi = {
   },
   getTotalBooks: async ({ categoryId }: ParamsType) => {
     const totalBooks = await axios
-      .get(process.env.REACT_APP_VERCEL_URL + "/fee-assessment-books", {
+      .get(process.env.REACT_APP_API_BASE_URL + "/fee-assessment-books", {
         params: { categoryId },
       })
       .then((response) => response.data.length || 0)
