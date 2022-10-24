@@ -35,6 +35,7 @@ const BookDetailModal = ({ book, isOpen, onClose, onBookmark }: Props) => {
     localStorage.setItem("bookmarks", JSON.stringify(newData));
     setBookmarks(newData);
     onBookmark(newData);
+    alert("Added to Bookmark");
   };
 
   const handleRemoveBookmark = (book: BookResponse) => {
@@ -42,6 +43,7 @@ const BookDetailModal = ({ book, isOpen, onClose, onBookmark }: Props) => {
     localStorage.setItem("bookmarks", JSON.stringify(newData));
     setBookmarks(newData);
     onBookmark(newData);
+    alert("Remove from Bookmark");
   };
 
   return (
