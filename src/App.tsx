@@ -199,15 +199,26 @@ function App() {
             </div>
           )}
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6">
-            {filteredBooks.map((book, index) => (
-              <div
-                className="cursor-pointer"
-                key={`book-key-${index}-${book.id}`}
-                onClick={() => handlePressBook(book)}
-              >
-                <BookCard book={book} isLoading={loading.books} />
-              </div>
-            ))}
+            {searchValue === "" &&
+              books.map((book, index) => (
+                <div
+                  className="cursor-pointer"
+                  key={`book-key-${index}-${book.id}`}
+                  onClick={() => handlePressBook(book)}
+                >
+                  <BookCard book={book} isLoading={loading.books} />
+                </div>
+              ))}
+            {searchValue !== "" &&
+              filteredBooks.map((book, index) => (
+                <div
+                  className="cursor-pointer"
+                  key={`book-key-${index}-${book.id}`}
+                  onClick={() => handlePressBook(book)}
+                >
+                  <BookCard book={book} isLoading={loading.books} />
+                </div>
+              ))}
           </div>
         </div>
         {!loading.meta && searchValue === "" && (
