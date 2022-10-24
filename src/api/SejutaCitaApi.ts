@@ -27,12 +27,9 @@ type ParamsType = {
 
 const SejutaCitaApi = {
   getCategories: async () => {
-    console.log(process.env.REACT_APP_API_BASE_URL);
     return await axios.get("/fee-assessment-categories");
   },
   getBooks: async ({ categoryId = 1, page = 0, size }: ParamsType) => {
-    console.log(process.env.REACT_APP_API_BASE_URL);
-
     const body = {
       categoryId,
       page,
