@@ -88,6 +88,9 @@ function App() {
 
   React.useEffect(() => {
     getCategories();
+  }, []);
+
+  React.useEffect(() => {
     getTotalBooks();
     setMeta((prev) => ({ ...prev, page: 0 }));
   }, [params.categoryId]);
