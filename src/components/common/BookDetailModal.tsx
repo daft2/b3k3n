@@ -15,9 +15,10 @@ type Props = {
   book?: BookResponse;
   isOpen: boolean;
   onClose: () => void;
+  onBookmark: (value: BookResponse[]) => void;
 };
 
-const BookDetailModal = ({ book, isOpen, onClose }: Props) => {
+const BookDetailModal = ({ book, isOpen, onClose, onBookmark }: Props) => {
   const [bookmarks, setBookmarks] = React.useState<BookResponse[]>([]);
 
   React.useEffect(() => {
@@ -33,12 +34,14 @@ const BookDetailModal = ({ book, isOpen, onClose }: Props) => {
     const newData = [...bookmarks, book];
     localStorage.setItem("bookmarks", JSON.stringify(newData));
     setBookmarks(newData);
+    onBookmark(newData);
   };
 
   const handleRemoveBookmark = (book: BookResponse) => {
     const newData = bookmarks.filter((b) => b.id !== book.id);
     localStorage.setItem("bookmarks", JSON.stringify(newData));
     setBookmarks(newData);
+    onBookmark(newData);
   };
 
   return (
