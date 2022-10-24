@@ -38,8 +38,7 @@ function App() {
 
   const [searchValue, setSearchValue] = React.useState("");
   const lowercasedSearchValue = searchValue.toLowerCase();
-  console.log("book:", books);
-  console.log("categories:", categories);
+
   let filteredBooks: BookResponse[] = [];
   // Search through books state for each keys
   if (!loading.books) {
