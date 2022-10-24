@@ -188,6 +188,7 @@ function App() {
               value={searchValue}
             />
             <SelectCategory
+              isLoading={loading.categories}
               onSelectCategory={handleSelectCategory}
               categories={categories}
             />

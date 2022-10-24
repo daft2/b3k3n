@@ -5,14 +5,18 @@ interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
   categories: CategoryResponse[];
   classNames?: string;
   onSelectCategory: (value: number) => void;
+  isLoading: boolean;
 }
 
 const SelectCategory = ({
   categories,
   classNames,
   onSelectCategory,
+  isLoading,
   ...props
 }: Props) => {
+  if (isLoading) return <div className="h-7 w-60 animate-pulse bg-gray-500" />;
+
   return (
     <div
       className={`flex flex-col lg:flex-row lg:gap-2 lg:items-center max-w-sm ${classNames}`}
